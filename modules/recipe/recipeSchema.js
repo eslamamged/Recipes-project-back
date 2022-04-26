@@ -17,5 +17,8 @@ const recipeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  cloudinary_id: {
+    type: String,
+  },
 });
 module.exports = recipeSchema;

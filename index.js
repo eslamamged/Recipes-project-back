@@ -1,12 +1,10 @@
 const express = require("express");
-const compression = require("compression");
 const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(compression()); // use to compress the http requests
 const recipeRouter = require("./Routes/recipeRouter");
 app.use(express.urlencoded({ extended: true }));
 app.use("/recipes", recipeRouter);

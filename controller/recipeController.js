@@ -12,7 +12,7 @@ exports.getAllRecipes = async (req, res, next) => {
 };
 
 exports.editRecipe = async (req, res, next) => {
-  let { title, ingredient, recipe } = req.body;
+  let { title, ingredient, recipe, image } = req.body;
   try {
     let oldRecipe = await Recipe.findById(req.params.id);
     let response;
@@ -48,7 +48,7 @@ exports.getRecipe = async (req, res, next) => {
 };
 
 exports.createRecipe = async (req, res, next) => {
-  let { title, ingredient, recipe, image } = req.body;
+  let { title, ingredient, recipe } = req.body;
   try {
     const response = await cloudinary.uploader.upload(req.file.path);
     recipe = new Recipe({
